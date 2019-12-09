@@ -1,8 +1,22 @@
 from tkinter import *
 from tkinter import ttk
+import pandas
+from datetime import datetime
 
-def submit(*args):
+fileName = "data.csv" #make sure there's a txt file called data.txt in the same folder as this program)
+
+
+def submit(*args): #this is the function that takes all the submitted data and slips it into the csv file
+    fullname = name.get()
+    reason = purpose.get()
+    now = datetime.now()
+    timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
+    d={'names': [fullname], "reasons": [reason], "timestamp": [timestamp]}
+    df = pandas.DataFrame(data =d)
+    df.to_csv(fileName, mode='a', header=False)
+   # print(df)
     messagebox.showinfo(message='You\'ve been signed in!' )
+
 
 
 root = Tk()
