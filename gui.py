@@ -4,6 +4,7 @@ from tkinter import ttk
 def submit(*args):
     messagebox.showinfo(message='You\'ve been signed in!' )
 
+
 root = Tk()
 root.title("SOPO Sign In") #this is where the name on top of the window goes
 
@@ -17,6 +18,7 @@ root.rowconfigure(0, weight=1)
 
 name = StringVar()
 purpose = StringVar()
+purpose.set("use")
 
 name_entry = ttk.Entry(mainframe, width=7, textvariable=name)
 name_entry.grid(column=2, row=2, sticky=(W, E))
@@ -31,6 +33,7 @@ ttk.Label(mainframe, text="What is your main reason for coming today?").grid(col
 repair = ttk.Radiobutton(mainframe, text='Repairing my bike', variable=purpose, value='use').grid(column=1, row=4)
 donate = ttk.Radiobutton(mainframe, text='Dropping off donation', variable=purpose, value='donate').grid(column=2, row=4)
 volunteer = ttk.Radiobutton(mainframe, text='Volunteering', variable=purpose, value='volunteer').grid(column=3, row=4)
+
 #ttk.Label(mainframe, text="meters").grid(column=3, row=2, sticky=W)
 
 
