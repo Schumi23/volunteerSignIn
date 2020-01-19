@@ -1,19 +1,36 @@
 from tkinter import *
 from tkinter import ttk
-import pandas
+# import pandas
 from datetime import datetime
+import csv
 
 fileName = "data.csv" #make sure there's a txt file called data.txt in the same folder as this program)
 
+
+# def submit(*args): #this is the function that takes all the submitted data and slips it into the csv file
+#     fullname = name.get()
+#     reason = purpose.get()
+#     now = datetime.now()
+#     timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
+#     d={'names': [fullname], "reasons": [reason], "timestamp": [timestamp]}
+#     df = pandas.DataFrame(data =d)
+#     df.to_csv(fileName, mode='a', header=False)
+#    # print(df)
+#     messagebox.showinfo(message='You\'ve been signed in!' )
 
 def submit(*args): #this is the function that takes all the submitted data and slips it into the csv file
     fullname = name.get()
     reason = purpose.get()
     now = datetime.now()
     timestamp = now.strftime("%d/%m/%Y %H:%M:%S")
-    d={'names': [fullname], "reasons": [reason], "timestamp": [timestamp]}
-    df = pandas.DataFrame(data =d)
-    df.to_csv(fileName, mode='a', header=False)
+    dat=[fullname, reason, timestamp]
+    with open('data.csv', 'a', newline='') as f:
+        writer = csv.writer(f)
+        writer.writerow(dat)
+    
+    
+    # df = pandas.DataFrame(data =d)
+    # df.to_csv(fileName, mode='a', header=False)
    # print(df)
     messagebox.showinfo(message='You\'ve been signed in!' )
 
