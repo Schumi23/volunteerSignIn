@@ -30,7 +30,8 @@ def submit(*args): #this is the function that takes all the submitted data and s
     with open('data.csv', 'a', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(dat)
-    #root.name_entry.delete(0, 'end')
+    name_entry.delete(first=0, last=100)
+    email_entry.delete(first=0, last=100)
     messagebox.showinfo(message='You\'ve been signed in!' )
 
     
