@@ -1,8 +1,10 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 # import pandas
 from datetime import datetime
 import csv
+
 
 fileName = "data.csv" #make sure there's a txt file called data.txt in the same folder as this program)
 
@@ -27,12 +29,12 @@ def submit(*args): #this is the function that takes all the submitted data and s
     with open('data.csv', 'a', newline='') as f:
         writer = csv.writer(f)
         writer.writerow(dat)
-    
+    messagebox.showinfo(message='You\'ve been signed in!' )
+
     
     # df = pandas.DataFrame(data =d)
     # df.to_csv(fileName, mode='a', header=False)
    # print(df)
-    messagebox.showinfo(message='You\'ve been signed in!' )
 
 
 
@@ -64,6 +66,7 @@ ttk.Label(mainframe, text="What is your main reason for coming today?").grid(col
 repair = ttk.Radiobutton(mainframe, text='Repairing my bike', variable=purpose, value='use').grid(column=1, row=4)
 donate = ttk.Radiobutton(mainframe, text='Dropping off donation', variable=purpose, value='donate').grid(column=2, row=4)
 volunteer = ttk.Radiobutton(mainframe, text='Volunteering', variable=purpose, value='volunteer').grid(column=3, row=4)
+other = ttk.Radiobutton(mainframe, text='Other', variable=purpose, value='other').grid(column=4, row=4)
 
 #ttk.Label(mainframe, text="meters").grid(column=3, row=2, sticky=W)
 
