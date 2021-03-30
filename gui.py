@@ -54,6 +54,7 @@ name = StringVar()
 purpose = StringVar()
 purpose.set("use")
 email = StringVar()
+phone = StringVar()
 
 name_entry = ttk.Entry(mainframe, width=7, textvariable=name)
 name_entry.grid(column=2, row=2, sticky=(W, E))
@@ -69,10 +70,18 @@ repair = ttk.Radiobutton(mainframe, text='Repairing my bike', variable=purpose, 
 donate = ttk.Radiobutton(mainframe, text='Dropping off donation', variable=purpose, value='donate').grid(column=2, row=4)
 volunteer = ttk.Radiobutton(mainframe, text='Volunteering', variable=purpose, value='volunteer').grid(column=3, row=4)
 other = ttk.Radiobutton(mainframe, text='Other', variable=purpose, value='other').grid(column=4, row=4)
-ttk.Label(mainframe, text="If you want to be added to our monthly email, give us information below!").grid(column=1, row=5, sticky=W, columnspan=4)
-ttk.Label(mainframe, text="Email: ").grid(column=1, row=6, sticky=E)
+ttk.Label(mainframe, text="If you haven't yet, please give us your cell phone number for contact tracing purposes.").grid(column=1, row=5, sticky=W, columnspan=4)
+ttk.Label(mainframe, text="Phone: ").grid(column=1, row=6, sticky=E)
+
+phone_entry = ttk.Entry(mainframe, width=7, textvariable=phone)
+phone_entry.grid(column=2, row=6, sticky=(W, E))
+
+
+ttk.Label(mainframe, text="If you want to be added to our monthly email, give us information below!").grid(column=1, row=7, sticky=W, columnspan=4)
+ttk.Label(mainframe, text="Email: ").grid(column=1, row=8, sticky=E)
+
 email_entry = ttk.Entry(mainframe, width=7, textvariable=email)
-email_entry.grid(column=2, row=6, sticky=(W, E))
+email_entry.grid(column=2, row=8, sticky=(W, E))
 
 #ttk.Label(mainframe, text="meters").grid(column=3, row=2, sticky=W)
 
